@@ -1,19 +1,17 @@
-import React from 'react'
-import Header from './Header'
-import Sidebar from './Sidebar'
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
 interface MasterlayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const Masterlayout: React.FC<MasterlayoutProps> = ({ children }) => {
   return (
-    <div className="masterlayout">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50">
       <Header />
-      <div className="content">
-        <Sidebar />
-        <main>{children}</main>
-      </div>
+      <main>{children}</main>
+      <Footer />
     </div>
-  )
-}
+  );
+};
