@@ -51,4 +51,19 @@ export class TransactionController {
     }
   }
 
+    async update(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const transaction = await transactionService.update(id, req.body);
+
+      if (!transaction) {
+        return ErrorUtil.handleNotFound(res, 'Transaction');
+      }
+
+      res.json(ResponseUtil.updated(transaction));
+    } catch (error) {
+      ErrorUtil.handleInternalError(res, error);
+    }
+  }
+
 }

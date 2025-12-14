@@ -20,4 +20,11 @@ router.get('/', transactionController.findAll.bind(transactionController));
 // GET /transactions/:id - Get transaction by ID
 router.get('/:id', transactionController.findById.bind(transactionController));
 
+// PUT /transactions/:id - Update transaction
+router.put(
+  '/:id',
+  validationMiddleware(UpdateTransactionDto),
+  transactionController.update.bind(transactionController)
+);
+
 export default router;
