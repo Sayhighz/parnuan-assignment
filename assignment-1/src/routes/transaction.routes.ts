@@ -14,4 +14,7 @@ router.post(
   transactionController.create.bind(transactionController)
 );
 
+// GET /transactions - Get all transactions (with optional filtering and pagination)
+router.get('/', transactionController.findAll.bind(transactionController));
+
 export default router;

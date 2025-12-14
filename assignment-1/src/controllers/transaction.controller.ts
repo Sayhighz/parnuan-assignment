@@ -16,4 +16,24 @@ export class TransactionController {
     }
   }
 
+  async findAll(req: Request, res: Response) {
+    try {
+      const { type, page, limit } = req.query;
+      const result = await transactionService.findAll(
+        type as TransactionType,
+        page ? parseInt(page as string) : undefined,
+        limit ? parseInt(limit as string) : undefined
+      );
+
+      if (page && limit) {
+        const paginated = result as PaginatedTransactions;
+        res.json(ResponseUtil.paginated(paginated.data, paginated.page, paginated.limit, paginated.total));
+      } else {
+        res.json(ResponseUtil.success(result as any[]));
+      }
+    } catch (error) {
+      ErrorUtil.handleInternalError(res, error);
+    }
+  }
+
 }

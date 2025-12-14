@@ -32,4 +32,34 @@ export class TransactionService {
     };
   }
 
+  async findAll(
+    type?: TransactionType,
+    page?: number,
+    limit?: number
+  ): Promise<ITransaction[] | PaginatedTransactions> {
+    const query: any = { deletedAt: null };
+
+    if (type) {
+      query.type = type;
+    }
+
+    if (page && limit) {
+      const skip = (page - 1) * limit;
+      const [transactions, total] = await Promise.all([
+        TransactionModel.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit),
+        TransactionModel.countDocuments(query)
+      ]);
+
+      return {
+        data: transactions.map(t => this.toTransactionResponse(t)),
+        total,
+        page,
+        limit
+      };
+    }
+
+    const transactions = await TransactionModel.find(query).sort({ createdAt: -1 });
+    return transactions.map(t => this.toTransactionResponse(t));
+  }
+
 }
