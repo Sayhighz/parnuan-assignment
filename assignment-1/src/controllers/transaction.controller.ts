@@ -66,4 +66,17 @@ export class TransactionController {
     }
   }
 
+  async getSummary(req: Request, res: Response) {
+    try {
+      const { startDate, endDate } = req.query;
+      const summary = await transactionService.getSummary(
+        startDate as string,
+        endDate as string
+      );
+      res.json(ResponseUtil.success(summary));
+    } catch (error) {
+      ErrorUtil.handleInternalError(res, error);
+    }
+  }
+
 }

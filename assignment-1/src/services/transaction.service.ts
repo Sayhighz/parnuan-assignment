@@ -85,4 +85,50 @@ export class TransactionService {
     return transaction ? this.toTransactionResponse(transaction) : null;
   }
 
+    async getSummary(startDate?: string, endDate?: string): Promise<TransactionSummary> {
+    const matchQuery: any = { deletedAt: null };
+
+    if (startDate !== undefined && startDate.trim() !== '') {
+      const start = new Date(startDate);
+      if (!isNaN(start.getTime())) {
+        matchQuery.createdAt = matchQuery.createdAt || {};
+        matchQuery.createdAt.$gte = start;
+      }
+    }
+
+    if (endDate !== undefined && endDate.trim() !== '') {
+      const end = new Date(endDate);
+      if (!isNaN(end.getTime())) {
+        matchQuery.createdAt = matchQuery.createdAt || {};
+        matchQuery.createdAt.$lte = end;
+      }
+    }
+
+    const result = await TransactionModel.aggregate([
+      { $match: matchQuery },
+      {
+        $group: {
+          _id: null,
+          totalIncome: {
+            $sum: {
+              $cond: [{ $eq: ['$type', 'income'] }, '$amount', 0]
+            }
+          },
+          totalExpense: {
+            $sum: {
+              $cond: [{ $eq: ['$type', 'expense'] }, '$amount', 0]
+            }
+          }
+        }
+      }
+    ]);
+
+    const summary = result[0] || { totalIncome: 0, totalExpense: 0 };
+    return {
+      totalIncome: summary.totalIncome,
+      totalExpense: summary.totalExpense,
+      balance: summary.totalIncome - summary.totalExpense
+    };
+  }
+
 }
