@@ -1,9 +1,10 @@
 import { Response } from 'express';
+import { ValidationError } from 'class-validator';
 import { ResponseUtil } from './response.util.js';
 
 export class ErrorUtil {
-  static handleValidationError(res: Response, errors: any[]): void {
-    const errorMessages = errors.map((error: any) => {
+  static handleValidationError(res: Response, errors: ValidationError[]): void {
+    const errorMessages = errors.map((error: ValidationError) => {
       const constraints = error.constraints;
       return constraints ? Object.values(constraints).join(', ') : 'Validation error';
     });
@@ -25,7 +26,7 @@ export class ErrorUtil {
     );
   }
 
-  static handleInternalError(res: Response, error: any): void {
+  static handleInternalError(res: Response, error: Error | unknown): void {
     console.error('Internal server error:', error);
     res.status(500).json(
       ResponseUtil.error('Internal server error')

@@ -5,6 +5,15 @@ import { UpdateTransactionDto } from '../dtos/update-transaction.dto.js';
 import { ValidationUtil } from '../utils/validation.util.js';
 import { randomBytes } from 'crypto';
 
+interface TransactionQuery {
+  deletedAt: Date | null;
+  type?: TransactionType;
+  createdAt?: {
+    $gte?: Date;
+    $lte?: Date;
+  };
+}
+
 export class TransactionService {
     async create(createDto: CreateTransactionDto): Promise<ITransaction> {
         const transactionDate = new Date();
@@ -26,7 +35,7 @@ export class TransactionService {
         page?: number,
         limit?: number
     ): Promise<ITransaction[] | PaginatedTransactions> {
-        const query: any = { deletedAt: null };
+        const query: TransactionQuery = { deletedAt: null };
 
         if (type) {
             query.type = type;
@@ -75,7 +84,7 @@ export class TransactionService {
     }
 
     async getSummary(startDate?: string, endDate?: string): Promise<TransactionSummary> {
-        const matchQuery: any = { deletedAt: null };
+        const matchQuery: TransactionQuery = { deletedAt: null };
 
         if (startDate !== undefined && startDate.trim() !== '') {
             const start = new Date(startDate);
