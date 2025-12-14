@@ -223,165 +223,6 @@ export const testCases: TestCase[] = [
   { description: 'jewelry store', expected: 'shopping' },
   { description: 'watch purchase', expected: 'shopping' },
   
-  // ==================== HEALTHCARE ====================
-  // Thai - Hospital & Clinic
-  { description: 'รพ.กรุงเทพ ค่ารักษา', expected: 'healthcare' },
-  { description: 'โรงพยาบาลบำรุงราษฎร์', expected: 'healthcare' },
-  { description: 'ค่าหมอ คลินิก', expected: 'healthcare' },
-  { description: 'ค่ารักษาพยาบาล', expected: 'healthcare' },
-  { description: 'นัดหมอฟัน คลินิก', expected: 'healthcare' },
-  { description: 'ทำฟัน จัดฟัน', expected: 'healthcare' },
-  { description: 'ตรวจสุขภาพ ประจำปี', expected: 'healthcare' },
-  { description: 'ตรวจตา ทำแว่น', expected: 'healthcare' },
-  
-  // Thai - Pharmacy & Medicine
-  { description: 'ร้านยา Fascino', expected: 'healthcare' },
-  { description: 'ซื้อยา Boots', expected: 'healthcare' },
-  { description: 'Watsons ยา', expected: 'healthcare' },
-  { description: 'ค่ายา ร้านขายยา', expected: 'healthcare' },
-  { description: 'วิตามิน อาหารเสริม', expected: 'healthcare' },
-  
-  // Thai - Fitness & Wellness
-  { description: 'Fitness First ค่าสมาชิก', expected: 'healthcare' },
-  { description: 'Virgin Active gym', expected: 'healthcare' },
-  { description: 'Jetts Fitness', expected: 'healthcare' },
-  { description: 'Anytime Fitness', expected: 'healthcare' },
-  { description: 'ค่ายิม รายเดือน', expected: 'healthcare' },
-  { description: 'สปา นวดแผนไทย', expected: 'healthcare' },
-  { description: "Let's Relax Spa", expected: 'healthcare' },
-  { description: 'Health Land นวด', expected: 'healthcare' },
-  
-  // English - Healthcare
-  { description: 'Medical checkup', expected: 'healthcare' },
-  { description: 'hospital bill', expected: 'healthcare' },
-  { description: 'dentist appointment', expected: 'healthcare' },
-  { description: 'pharmacy medicine', expected: 'healthcare' },
-  { description: 'vitamin supplements', expected: 'healthcare' },
-  { description: 'gym membership', expected: 'healthcare' },
-  { description: 'spa massage', expected: 'healthcare' },
-  { description: 'doctor consultation', expected: 'healthcare' },
-  
-  // ==================== ENTERTAINMENT ====================
-  // Thai - Movies & Events
-  { description: 'Major Cineplex รัชโยธิน', expected: 'entertainment' },
-  { description: 'SF Cinema หนัง', expected: 'entertainment' },
-  { description: 'ตั๋วหนัง Avengers', expected: 'entertainment' },
-  { description: 'คอนเสิร์ต BTS', expected: 'entertainment' },
-  { description: 'บัตรคอนเสิร์ต', expected: 'entertainment' },
-  
-  // Thai - Games
-  { description: 'Steam เกม', expected: 'entertainment' },
-  { description: 'PlayStation Plus', expected: 'entertainment' },
-  { description: 'Nintendo eShop', expected: 'entertainment' },
-  { description: 'เติมเกม ROV', expected: 'entertainment' },
-  { description: 'เติมเพชร Free Fire', expected: 'entertainment' },
-  
-  // Thai - Travel & Tourism
-  { description: 'Agoda โรงแรม เชียงใหม่', expected: 'entertainment' },
-  { description: 'Booking.com ที่พัก', expected: 'entertainment' },
-  { description: 'Airbnb บ้านพัก', expected: 'entertainment' },
-  { description: 'Traveloka จองโรงแรม', expected: 'entertainment' },
-  { description: 'Klook ตั๋วท่องเที่ยว', expected: 'entertainment' },
-  { description: 'KKday ทัวร์', expected: 'entertainment' },
-  { description: 'สวนสนุก ดรีมเวิลด์', expected: 'entertainment' },
-  { description: 'Safari World ค่าเข้า', expected: 'entertainment' },
-  { description: 'ท่องเที่ยว ภูเก็ต', expected: 'entertainment' },
-  
-  // Thai - Leisure Activities
-  { description: 'คาราโอเกะ', expected: 'entertainment' },
-  { description: 'โบว์ลิ่ง', expected: 'entertainment' },
-  { description: 'สนุกเกอร์', expected: 'entertainment' },
-  
-  // English - Entertainment
-  { description: 'movie tickets', expected: 'entertainment' },
-  { description: 'cinema popcorn', expected: 'entertainment' },
-  { description: 'concert ticket', expected: 'entertainment' },
-  { description: 'game purchase Steam', expected: 'entertainment' },
-  { description: 'hotel booking', expected: 'entertainment' },
-  { description: 'resort vacation', expected: 'entertainment' },
-  { description: 'theme park', expected: 'entertainment' },
-  { description: 'karaoke night', expected: 'entertainment' },
-  
-  // ==================== EDUCATION ====================
-  // Thai - Tuition & Courses
-  { description: 'ค่าเทอม มหาวิทยาลัย', expected: 'education' },
-  { description: 'ค่าเรียน ภาษาอังกฤษ', expected: 'education' },
-  { description: 'ค่าคอร์สเรียนภาษาอังกฤษ', expected: 'education' },
-  { description: 'คอร์สออนไลน์ Udemy', expected: 'education' },
-  { description: 'Coursera subscription', expected: 'education' },
-  { description: 'Skillshare รายปี', expected: 'education' },
-  { description: 'ติวเตอร์ คณิตศาสตร์', expected: 'education' },
-  { description: 'กวดวิชา เคมี', expected: 'education' },
-  { description: 'เรียนพิเศษ', expected: 'education' },
-  
-  // Thai - Books & Stationery
-  { description: 'หนังสือ SE-ED', expected: 'education' },
-  { description: 'ซีเอ็ด ตำราเรียน', expected: 'education' },
-  { description: 'B2S เครื่องเขียน', expected: 'education' },
-  { description: 'นายอินทร์ หนังสือ', expected: 'education' },
-  { description: 'Asia Books', expected: 'education' },
-  { description: 'Kinokuniya หนังสือ', expected: 'education' },
-  { description: 'อุปกรณ์การเรียน', expected: 'education' },
-  
-  // Thai - Exams & Certifications
-  { description: 'ค่าสอบ TOEIC', expected: 'education' },
-  { description: 'ค่าสอบ IELTS', expected: 'education' },
-  { description: 'สอบใบขับขี่', expected: 'education' },
-  
-  // English - Education
-  { description: 'tuition fee', expected: 'education' },
-  { description: 'online course', expected: 'education' },
-  { description: 'textbook purchase', expected: 'education' },
-  { description: 'stationery supplies', expected: 'education' },
-  { description: 'exam registration', expected: 'education' },
-  { description: 'certification training', expected: 'education' },
-  { description: 'workshop seminar', expected: 'education' },
-  { description: 'school supplies', expected: 'education' },
-  
-  // ==================== TRANSFER ====================
-  // Thai - Transfers
-  { description: 'โอนให้ แม่', expected: 'transfer' },
-  { description: 'โอนเงินให้ พ่อ', expected: 'transfer' },
-  { description: 'ส่งเงินให้ น้อง', expected: 'transfer' },
-  { description: 'โอน พี่สาว', expected: 'transfer' },
-  { description: 'โอนเงิน เพื่อน', expected: 'transfer' },
-  { description: 'โอนค่าใช้จ่าย', expected: 'transfer' },
-  
-  // English - Transfers
-  { description: 'transfer to mom', expected: 'transfer' },
-  { description: 'send money dad', expected: 'transfer' },
-  { description: 'money transfer friend', expected: 'transfer' },
-  
-  // SMS Banking Format - Transfer
-  { description: 'TRF TO 0812345678', expected: 'transfer' },
-  { description: 'TRANSFER TO SAVINGS', expected: 'transfer' },
-  
-  // ==================== INCOME ====================
-  // Thai - Salary & Wages
-  { description: 'เงินเดือน บริษัท ABC', expected: 'income' },
-  { description: 'เงินเดือน ธ.ค.', expected: 'income' },
-  { description: 'โบนัส ปลายปี', expected: 'income' },
-  { description: 'ค่าจ้าง ฟรีแลนซ์', expected: 'income' },
-  { description: 'รายได้ เสริม', expected: 'income' },
-  { description: 'ค่าคอมมิชชั่น', expected: 'income' },
-  
-  // Thai - Refunds & Cashback
-  { description: 'เงินคืน Shopee', expected: 'income' },
-  { description: 'แคชแบ็ค บัตรเครดิต', expected: 'income' },
-  { description: 'คืนเงิน ค่าสินค้า', expected: 'income' },
-  { description: 'เงินโอนเข้า', expected: 'income' },
-  { description: 'รับเงิน จากลูกค้า', expected: 'income' },
-  
-  // English - Income
-  { description: 'salary December', expected: 'income' },
-  { description: 'monthly wage', expected: 'income' },
-  { description: 'bonus payment', expected: 'income' },
-  { description: 'freelance income', expected: 'income' },
-  { description: 'refund received', expected: 'income' },
-  { description: 'cashback reward', expected: 'income' },
-  { description: 'commission earned', expected: 'income' },
-  { description: 'deposit received', expected: 'income' },
-  
   // ==================== OTHER / EDGE CASES ====================
   // Ambiguous
   { description: 'ของขวัญ', expected: 'other' },
@@ -421,7 +262,6 @@ export const testCases: TestCase[] = [
   { description: 'จ่ายค่าแท็กซี่', expected: 'transport' },
   
   // Shopping at food store (context matters)
-  { description: 'Watsons วิตามิน', expected: 'healthcare' },
   { description: 'Watsons สกินแคร์', expected: 'shopping' },
   
   // Long descriptions
@@ -435,9 +275,6 @@ export const testCases: TestCase[] = [
   
   // Mixed Thai-English (Tinglish)
   { description: 'กิน lunch กับเพื่อน', expected: 'food' },
-  { description: 'ไป gym ออกกำลังกาย', expected: 'healthcare' },
-  { description: 'ดู movie ที่ Major', expected: 'entertainment' },
-  { description: 'ซื้อ book ที่ SE-ED', expected: 'education' },
 ];
 
 // Group test cases by category for easier review

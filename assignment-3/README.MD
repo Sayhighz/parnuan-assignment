@@ -16,11 +16,6 @@ A TypeScript library that uses Groq's Llama model to categorize transaction desc
 - **transport**: Transportation, fuel, parking, vehicle maintenance, ride-hailing, public transport
 - **utilities**: Bills, utilities, subscriptions, recurring services (electricity, water, internet, phone, rent, insurance)
 - **shopping**: Retail shopping, clothing, electronics, online shopping, personal items
-- **healthcare**: Medical expenses, pharmacy, health products, fitness
-- **entertainment**: Movies, games, hobbies, leisure activities, travel, tourism
-- **education**: Tuition, courses, books, learning materials
-- **transfer**: Money transfers between accounts, transfers to other people
-- **income**: Salary, wages, received payments, refunds, cashback
 - **other**: Anything that doesn't clearly fit into above categories
 
 ## Setup
@@ -81,7 +76,7 @@ Categorizes a transaction description.
 
 - **Parameters**:
   - `description`: The transaction description (string)
-- **Returns**: A promise that resolves to one of the 10 categories: `'food' | 'transport' | 'utilities' | 'shopping' | 'healthcare' | 'entertainment' | 'education' | 'transfer' | 'income' | 'other'`
+- **Returns**: A promise that resolves to one of the 10 categories: `'food' | 'transport' | 'utilities' | 'shopping'|  'other'`
 
 ## Prompt Design
 

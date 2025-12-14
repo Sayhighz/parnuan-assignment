@@ -3,11 +3,6 @@ export type Category =
   | 'transport'
   | 'utilities'
   | 'shopping'
-  | 'healthcare'
-  | 'entertainment'
-  | 'education'
-  | 'transfer'
-  | 'income'
   | 'other';
 
 export const VALID_CATEGORIES: Category[] = [
@@ -15,10 +10,5 @@ export const VALID_CATEGORIES: Category[] = [
   'transport',
   'utilities',
   'shopping',
-  'healthcare',
-  'entertainment',
-  'education',
-  'transfer',
-  'income',
   'other',
 ];

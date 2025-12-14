@@ -27,36 +27,6 @@ Retail shopping, clothing, electronics, online shopping, personal items
 - English: shopping, clothes, shoes, bag, watch, jewelry, cosmetics, makeup, furniture, electronics, gadget, phone, computer, laptop
 - Brands/Stores: Shopee, Lazada, JD Central, Central, Robinson, The Mall, Siam Paragon, MBK, Terminal 21, IKEA, Power Buy, Banana IT, IT City, Uniqlo, H&M, Zara, Watsons, Boots, EVEANDBOY, Sephora, King Power
 
-### healthcare
-Medical expenses, pharmacy, health products, fitness
-- Thai: ค่าหมอ, ค่ารักษา, ค่ายา, ร้านยา, โรงพยาบาล, คลินิก, ทันตกรรม, ทำฟัน, แว่นสายตา, คอนแทคเลนส์, วิตามิน, อาหารเสริม, ฟิตเนส, ยิม, สปา, นวด
-- English: hospital, clinic, doctor, dentist, pharmacy, medicine, drug, vitamin, supplement, gym, fitness, spa, massage, health
-- Brands/Stores: Fascino, Boots, Watsons, Blink, โรงพยาบาลกรุงเทพ, โรงพยาบาลบำรุงราษฎร์, Fitness First, Virgin Active, Jetts, Anytime Fitness, Let's Relax, Health Land
-
-### entertainment
-Movies, games, hobbies, leisure activities, travel, tourism
-- Thai: หนัง, ภาพยนตร์, คอนเสิร์ต, เกม, ท่องเที่ยว, โรงแรม, ที่พัก, ตั๋วเครื่องบิน, ตั๋วรถไฟ, สวนสนุก, ค่าเข้าชม, บัตรคอนเสิร์ต, คาราโอเกะ, สนุกเกอร์, โบว์ลิ่ง
-- English: movie, cinema, concert, game, travel, hotel, flight, ticket, resort, theme park, attraction, karaoke, bowling, entertainment
-- Brands/Stores: Major Cineplex, SF Cinema, Steam, PlayStation, Nintendo, Agoda, Booking.com, Airbnb, Traveloka, Klook, KKday, เมเจอร์
-
-### education
-Tuition, courses, books, learning materials
-- Thai: ค่าเทอม, ค่าเรียน, คอร์สเรียน, หนังสือ, ตำรา, อุปกรณ์การเรียน, เครื่องเขียน, ติวเตอร์, กวดวิชา, สอบ, ค่าสอบ
-- English: tuition, course, class, book, textbook, stationery, education, school, university, exam, certification, training, workshop
-- Brands/Stores: Udemy, Coursera, Skillshare, B2S, SE-ED, นายอินทร์, Asia Books, Kinokuniya, ซีเอ็ด
-
-### transfer
-Money transfers between accounts, transfers to other people (NOT payments for goods/services)
-- Thai: โอนเงิน, โอนให้, ส่งเงิน, โอนค่า
-- English: transfer, send money
-- Note: Only categorize as transfer if it's purely moving money, not paying for something
-
-### income
-Salary, wages, received payments, refunds, cashback
-- Thai: เงินเดือน, รายได้, เงินโอนเข้า, เงินคืน, แคชแบ็ค, โบนัส, ค่าจ้าง, รับเงิน
-- English: salary, income, wage, bonus, refund, cashback, rebate, received, deposit
-- Note: Money coming IN to the account
-
 ### other
 Anything that doesn't clearly fit into above categories
 - Unclear descriptions
@@ -90,21 +60,6 @@ Output: utilities
 Input: SHOPEE TH 299.00
 Output: shopping
 
-Input: นัดหมอฟัน คลินิก
-Output: healthcare
-
-Input: Major Cineplex รัชโยธิน
-Output: entertainment
-
-Input: ค่าคอร์สเรียนภาษาอังกฤษ
-Output: education
-
-Input: โอนให้ แม่
-Output: transfer
-
-Input: เงินเดือน บริษัท ABC
-Output: income
-
 Input: POS PURCHASE 150.00
 Output: other
 
@@ -116,12 +71,6 @@ Output: transport
 
 Input: TRUE MONEY PAYMENT
 Output: utilities
-
-Input: รพ.กรุงเทพ ค่ารักษา
-Output: healthcare
-
-Input: Agoda โรงแรม เชียงใหม่
-Output: entertainment
 
 Input: โอนเงิน ค่าข้าว ให้เพื่อน
 Output: food
