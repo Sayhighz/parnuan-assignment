@@ -1,73 +1,111 @@
-# React + TypeScript + Vite
+# Transaction Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React frontend application for managing and visualizing financial transactions, built with TypeScript, Vite, and Tailwind CSS. This dashboard connects to the Transaction API (assignment-1) to provide a user-friendly interface for transaction management.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Interactive dashboard with summary cards
+- ✅ Transaction list with pagination and filtering
+- ✅ Search functionality for transactions
+- ✅ Charts and visualizations using Recharts
+- ✅ Responsive design with Tailwind CSS
+- ✅ TypeScript for type safety
+- ✅ Axios for API communication
+- ✅ Modern UI components with shadcn/ui
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Runtime**: Node.js with ES Modules
+- **Framework**: React 19 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Charts**: Recharts
+- **Icons**: Lucide React & Tabler Icons
+- **HTTP Client**: Axios
+- **Routing**: React Router DOM
+- **Animation**: Motion, MagicUI
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (v16 or higher)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository and navigate to the project directory
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+The application will be available at `http://localhost:5173`
+
+## Usage
+
+The dashboard provides the following main sections:
+
+- **Dashboard**: Overview with summary cards showing total income, expenses, and balance
+- **Transaction List**: View all transactions with filtering and search capabilities
+- **Charts**: Visual representations of transaction data
+
+### Connecting to API
+
+The application expects the Transaction API to be running. Update the API base URL in the code if necessary (currently hardcoded to `http://localhost:3000`).
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui components
+│   ├── ChartSection.tsx
+│   ├── FilterBar.tsx
+│   ├── SearchBar.tsx
+│   ├── SummaryCards.tsx
+│   ├── TransactionItem.tsx
+│   └── TransactionList.tsx
+├── data/               # Mock data (for development)
+├── layouts/            # Layout components
+│   ├── Footer.tsx
+│   ├── Header.tsx
+│   └── Masterlayout.tsx
+├── lib/                # Utility functions
+├── pages/              # Page components
+│   └── Dashboard/
+├── types/              # TypeScript type definitions
+├── App.tsx             # Main application component
+├── main.tsx            # Application entry point
+└── index.css           # Global styles
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Available Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
+### Environment Setup
+
+No environment variables
+
+## Dependencies
+
+This project uses the following key dependencies:
+
+- **React**: UI framework
+- **TypeScript**: Type safety
+- **Vite**: Fast build tool
+- **Tailwind CSS**: Utility-first CSS framework
+- **Recharts**: Chart library
+- **Axios**: HTTP client
+- **React Router DOM**: Client-side routing
+- **Motion**: Animation library
