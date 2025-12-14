@@ -17,4 +17,7 @@ router.post(
 // GET /transactions - Get all transactions (with optional filtering and pagination)
 router.get('/', transactionController.findAll.bind(transactionController));
 
+// GET /transactions/:id - Get transaction by ID
+router.get('/:id', transactionController.findById.bind(transactionController));
+
 export default router;

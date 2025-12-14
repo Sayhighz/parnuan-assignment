@@ -62,4 +62,27 @@ export class TransactionService {
     return transactions.map(t => this.toTransactionResponse(t));
   }
 
+  async findById(id: string): Promise<ITransaction | null> {
+    if (!ValidationUtil.isValidObjectId(id)) {
+      return null;
+    }
+
+    const transaction = await TransactionModel.findOne({ _id: id, deletedAt: null });
+    return transaction ? this.toTransactionResponse(transaction) : null;
+  }
+
+  async update(id: string, updateDto: UpdateTransactionDto): Promise<ITransaction | null> {
+    if (!ValidationUtil.isValidObjectId(id)) {
+      return null;
+    }
+
+    const transaction = await TransactionModel.findOneAndUpdate(
+      { _id: id, deletedAt: null },
+      { ...updateDto, updatedAt: new Date() },
+      { new: true }
+    );
+
+    return transaction ? this.toTransactionResponse(transaction) : null;
+  }
+
 }

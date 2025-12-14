@@ -36,4 +36,19 @@ export class TransactionController {
     }
   }
 
+  async findById(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const transaction = await transactionService.findById(id);
+
+      if (!transaction) {
+        return ErrorUtil.handleNotFound(res, 'Transaction');
+      }
+
+      res.json(ResponseUtil.success(transaction));
+    } catch (error) {
+      ErrorUtil.handleInternalError(res, error);
+    }
+  }
+
 }
