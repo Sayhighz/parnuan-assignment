@@ -30,4 +30,10 @@ router.put(
   transactionController.update.bind(transactionController)
 );
 
+// DELETE /transactions/:id - Soft delete transaction
+router.delete('/:id', transactionController.delete.bind(transactionController));
+
+// PATCH /transactions/:id/restore - Restore deleted transaction
+router.patch('/:id/restore', transactionController.restore.bind(transactionController));
+
 export default router;

@@ -79,4 +79,34 @@ export class TransactionController {
     }
   }
 
+    async delete(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const result = await transactionService.delete(id);
+
+      if (!result) {
+        return ErrorUtil.handleNotFound(res, 'Transaction');
+      }
+
+      res.json(ResponseUtil.deleted());
+    } catch (error) {
+      ErrorUtil.handleInternalError(res, error);
+    }
+  }
+
+  async restore(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const transaction = await transactionService.restore(id);
+
+      if (!transaction) {
+        return ErrorUtil.handleNotFound(res, 'Transaction not found or not deleted');
+      }
+
+      res.json(ResponseUtil.success(transaction, 'Transaction restored successfully'));
+    } catch (error) {
+      ErrorUtil.handleInternalError(res, error);
+    }
+  }
+
 }
