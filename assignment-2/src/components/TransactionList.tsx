@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef, startTransition } from 'react';
 import type { Transaction } from '../types';
 import TransactionItem from './TransactionItem';
 import Card from './ui/Card';
-import { ChevronLeft, ChevronRight, Search, Loader } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader } from 'lucide-react';
 
 interface TransactionListProps {
   transactions: Transaction[];
@@ -29,16 +29,20 @@ const TransactionList: React.FC<TransactionListProps> = ({
   const transactionsKey = transactions.map(t => t.id).join(',');
 
   // Reset to page 1 when transactions change (filter/search)
-  useEffect(() => {
-    setIsLoading(true);
-    setSlideDirection('none');
-    setCurrentPage(1);
-    setIsAnimating(false);
+  useLayoutEffect(() => {
+    startTransition(() => {
+      setIsLoading(true);
+      setSlideDirection('none');
+      setCurrentPage(1);
+      setIsAnimating(false);
+    });
     setTimeout(() => {
-      setDisplayedTransactions(transactions.slice(0, itemsPerPage));
-      setIsLoading(false);
+      startTransition(() => {
+        setDisplayedTransactions(transactions.slice(0, itemsPerPage));
+        setIsLoading(false);
+      });
     }, 300);
-  }, [transactionsKey, itemsPerPage]);
+  }, [transactionsKey, itemsPerPage, transactions]);
 
   // Update displayed transactions with animation when page changes
   useEffect(() => {
@@ -50,12 +54,12 @@ const TransactionList: React.FC<TransactionListProps> = ({
     const newEndIndex = newStartIndex + itemsPerPage;
     const newTransactions = transactions.slice(newStartIndex, newEndIndex);
 
-    setIsAnimating(true);
-    
     // After exit animation completes, update content and trigger enter animation
     const timer = setTimeout(() => {
-      setDisplayedTransactions(newTransactions);
-      setIsAnimating(false);
+      startTransition(() => {
+        setDisplayedTransactions(newTransactions);
+        setIsAnimating(false);
+      });
     }, 200);
 
     return () => clearTimeout(timer);
@@ -63,8 +67,11 @@ const TransactionList: React.FC<TransactionListProps> = ({
 
   const goToPage = (page: number, direction: 'left' | 'right') => {
     if (page >= 1 && page <= totalPages && !isAnimating) {
-      setSlideDirection(direction);
-      setCurrentPage(page);
+      startTransition(() => {
+        setSlideDirection(direction);
+        setIsAnimating(true);
+        setCurrentPage(page);
+      });
     }
   };
 
