@@ -10,7 +10,6 @@ A React frontend application for managing and visualizing financial transactions
 - ✅ Charts and visualizations using Recharts
 - ✅ Responsive design with Tailwind CSS
 - ✅ TypeScript for type safety
-- ✅ Axios for API communication
 - ✅ Modern UI components with shadcn/ui
 
 ## Tech Stack
@@ -106,6 +105,5 @@ This project uses the following key dependencies:
 - **Vite**: Fast build tool
 - **Tailwind CSS**: Utility-first CSS framework
 - **Recharts**: Chart library
-- **Axios**: HTTP client
 - **React Router DOM**: Client-side routing
 - **Motion**: Animation library
